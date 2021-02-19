@@ -1,18 +1,22 @@
 #https://leetcode.com/problems/reverse-integer/
-import math
-
 class Solution(object):
-    def isPalindrome(self, x):
+    def reverse(self, x):
         """
         :type x: int
-        :rtype: bool
+        :rtype: int
         """
-        if x < 0:
-            return False
         baseStr = str(x)
-        strLength = len(baseStr)
-        maxI = int(math.floor((strLength)/2))
-        for i in range(0, maxI):
-            if baseStr[i] != baseStr[-1-i]:
-                return False
-        return True
+        neg = ''
+        zeroCut = 0
+        if baseStr[0] == '-':
+            neg = '-'
+            baseStr = baseStr[1:]
+        baseStr = baseStr[::-1]
+        for i in range(0, len(baseStr)):
+            zeroCut = i
+            if baseStr[i] != '0':
+                break
+        finalNum = int(neg+baseStr[zeroCut:])
+        if(finalNum < -2**31 or finalNum > 2**31-1):
+            return 0
+        return finalNum
