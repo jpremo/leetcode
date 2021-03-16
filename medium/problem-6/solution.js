@@ -4,16 +4,11 @@ var longestRightPalindrome = function (s) {
     let rightHead = rightIdx
     let cutEnd = s.length;
     let idx = 0;
-    while( rightIdx > idx+1 ) {
+    while( rightIdx > idx ) {
         leftChar = s[idx];
         rightChar = s[rightIdx]
-        if(leftChar !== rightChar) {
-            idx = 0;
-            rightHead --;
-            cutEnd = rightHead
-            rightIdx = rightHead
-        } else {
-            idx ++
+        if(leftChar === rightChar) {
+
         }
         rightIdx --
     }
