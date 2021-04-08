@@ -17,7 +17,7 @@ var removeNthFromEnd = function (head, n) {
     while(currentNode) {
         currentNode = currentNode.next
         counter++
-        if(counter >= n) {
+        if(counter > n) {
             window = [window[1], window[2], window[2].next]
         }
     }
